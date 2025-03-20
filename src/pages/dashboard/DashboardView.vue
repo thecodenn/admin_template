@@ -1,10 +1,11 @@
 <template>
+  <q-page id="dashboardPage" class="q-pt-lg">
 
- <q-page id="dashboardPage" class="q-pt-lg">
+    <DashboardTopBar />
 
-  <div class="row q-col-gutter-sm justify-between">
+    <div class="row q-col-gutter-sm justify-between">
 
-    <div class="q-pa-md row items-start q-gutter-md">
+      <div class="q-pa-md row items-start q-gutter-md">
 
 
         <q-card class="my-card" flat bordered>
@@ -16,48 +17,39 @@
           </q-card-actions>
 
           <q-card-section>
-            <lume-sparkline-chart
-              :data="data"
-              :labels="labels"
-            />
+            <lume-sparkline-chart :data="data" :labels="labels" />
           </q-card-section>
 
         </q-card>
       </div>
 
 
-
-
-
-
-
     </div>
 
- </q-page>
-
+  </q-page>
 </template>
 
 <script setup>
-import { LumeSparklineChart   } from '@adyen/lume-vue3';
+import { LumeSparklineChart } from '@adyen/lume-vue3';
+import DashboardTopBar from "components/Dashboard/TopBar.vue";
+
 import { ref } from 'vue';
 const data = ref([
-    {
-      label: 'My dataset',
-      color: 'skyblue',
-      values: [10, 30, 20, 50, 40],
-    },
-  ]);
+  {
+    label: 'My dataset',
+    color: 'skyblue',
+    values: [10, 30, 20, 50, 40],
+  },
+]);
 
-  const labels = ref(['Jan', 'Feb', 'Mar', 'Apr', 'May']);
+const labels = ref(['Jan', 'Feb', 'Mar', 'Apr', 'May']);
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped>
 @use '@adyen/lume-vue3/scss';
 
 .my-card {
   width: 100%;
   max-width: 250px;
 }
-
-
 </style>
