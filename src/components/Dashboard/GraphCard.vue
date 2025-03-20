@@ -19,14 +19,8 @@
         <q-card-section>
 
             <div class="row no-wrap items-center">
+                <lume-sparkline-chart :data="data" :labels="labels" style="height: 80px;" />
 
-                <div class="col text-h6 ellipsis">
-                    Cafe Basilico
-                </div>
-                <div class="col-auto text-grey text-caption q-pt-md row no-wrap items-center">
-                    <q-icon name="place" />
-                    250 ft
-                </div>
             </div>
 
             <q-rating v-model="stars" :max="5" size="32px" />
@@ -48,12 +42,26 @@
 import { ref } from "vue";
 const stars = ref(3);
 
+import { LumeSparklineChart } from '@adyen/lume-vue3';
+
+const data = ref([
+   {
+     label: 'My dataset',
+     color: 'skyblue',
+     values: [10, 30, 20, 50, 40],
+   },
+]);
+
+const labels = ref(['Jan', 'Feb', 'Mar', 'Apr', 'May']);
+
 defineProps({
     size: String,
 })
 </script>
 
-<style scoped>
+<style lang="scss">
+@use '@adyen/lume-vue3/scss';
+
 .small-card {
     width: 100%;
     max-width: 20%;

@@ -1,20 +1,33 @@
 <template>
-  <q-layout view="lHh LpR fFf">
+  <q-layout view="hHh lpR fFf">
 
 
-    <q-drawer v-model="leftDrawerOpen" side="left" bordered :mini="leftDrawerMini" mini-width="60">
+
+
+    <q-drawer v-model="leftDrawerOpen" side="left" overlay bordered>
       <q-list>
-        <EssentialLink v-for="link in linksList" :key="link.title" v-bind="link" @toggled="toggleLeftDrawer" />
+        <q-item-label
+          header
+        >
+          Essential Links
+        </q-item-label>
+        <EssentialLink
+          v-for="link in linksList"
+          :key="link.title"
+          v-bind="link"
+        />
       </q-list>
+
     </q-drawer>
 
 
-    <q-header class="bg-white">
-      <q-toolbar class="row items-center">
+    <q-header>
+      <q-toolbar>
+        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
         <!-- Left Section: Title Area -->
-        <div class="row items-center q-gutter-md">
 
-          <q-toolbar-title style="flex: 0 0 auto; color: grey; font-size: 2em;">
+
+          <q-toolbar-title>
             WORKSPACE
           </q-toolbar-title>
           <q-btn rounded color="grey">
@@ -22,7 +35,7 @@
               style="background-color: lightgrey; border-radius: 50%; padding: 0.2em;" />
             New Task
           </q-btn>
-        </div>
+
 
         <!-- Right Section: Deals Containers -->
         <div class="row items-center q-gutter-lg" style="flex: 1; justify-content: space-evenly;">
@@ -65,8 +78,9 @@
               </div>
             </div>
           </div>
-          <q-btn dense flat round icon="account_circle" @click="toggleRightDrawer" />
+
         </div>
+        <q-btn dense flat round icon="account_circle" @click="toggleRightDrawer" />
       </q-toolbar>
     </q-header>
 
@@ -93,13 +107,14 @@
 import { ref } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
 
-const leftDrawerOpen = ref(true)
-const leftDrawerMini = ref(true);
+const leftDrawerOpen = ref(false)
+const leftDrawerMini = ref(false);
 
 const rightDrawerOpen = ref(false)
 
 function toggleLeftDrawer() {
   leftDrawerMini.value = !leftDrawerMini.value;
+  leftDrawerOpen.value = !leftDrawerOpen.value;
 }
 
 function toggleRightDrawer() {

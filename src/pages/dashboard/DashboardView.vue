@@ -35,22 +35,12 @@
 </template>
 
 <script setup>
-// import { LumeSparklineChart } from '@adyen/lume-vue3';
+
 import DashboardTopBar from "components/Dashboard/TopBar.vue";
 import DashboardTopCards from "components/Dashboard/TopCards.vue";
 
-// import { ref } from 'vue';
-// const data = ref([
-//   {
-//     label: 'My dataset',
-//     color: 'skyblue',
-//     values: [10, 30, 20, 50, 40],
-//   },
-// ]);
-
-// const labels = ref(['Jan', 'Feb', 'Mar', 'Apr', 'May']);
 </script>
 
 <style lang="scss" scoped>
-@use '@adyen/lume-vue3/scss';
+
 </style>
