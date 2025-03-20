@@ -7,7 +7,6 @@
 
       <div class="q-pa-md row items-start q-gutter-md">
 
-
         <!-- <q-card class="my-card" flat bordered>
 
           <q-card-actions align="right">
@@ -24,14 +23,11 @@
 
         <DashboardTopCards size="small" />
 
-
         <DashboardTopBar class="q-mt-xl" />
 
         <DashboardTopCards size="large" />
 
-
       </div>
-
 
     </div>
 
