@@ -11,15 +11,19 @@
 // It's highly recommended to change the default colors
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
+$font-family: 'Roboto', sans-serif;
 
-$primary   : #1976D2;
-$secondary : #26A69A;
-$accent    : #9C27B0;
+$primary: #1c212d;
+$secondary: #e7f5d5;
+$accent: #8edd27;
 
-$dark      : #1D1D1D;
-$dark-page : #121212;
+$dark: #262b37;
+$dark-page: #171b26;
 
-$positive  : #21BA45;
-$negative  : #C10015;
-$info      : #31CCEC;
-$warning   : #F2C037;
+$positive: #28a745;
+$negative: #dc3545;
+$info: #27dd76;
+$warning: #dd7627;
+
+// $disabled: #616161;  // defaults
+// $disabled-text: #9E9E9E;

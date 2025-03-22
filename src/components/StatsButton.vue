@@ -1,39 +1,82 @@
 <template>
-  <div class="container row items-center">
+  <q-btn class="button">
+    <!-- Left side showing the value -->
     <div class="left">
-      <span class="number">34</span>
+      <span class="number">{{ value }}</span>
     </div>
-    <div class="right q-ml-sm">
-      <div class="top">
-        <q-btn icon="arrow_upward" color="lime" rounded size="10px" style="padding: 0 5px">3</q-btn>
+
+    <!-- Right side showing the difference and name -->
+    <div class="q-ml-sm">
+      <div class="bool row-center" :class="{ up: up, down: !up }">
+        <span style="padding-right: 5px">{{ diff }}</span>
+        <q-icon :name="up ? 'arrow_upward' : 'arrow_downward'"></q-icon>
       </div>
       <div class="bottom">
-        <span class="muted-text">Deals</span>
+        <span>{{ name }}</span>
       </div>
     </div>
-  </div>
+  </q-btn>
 </template>
 
+<script>
+export default {
+  props: {
+    value: {
+      type: [String, Number],
+      required: true,
+    },
+    up: {
+      type: Boolean,
+      required: true,
+    },
+    diff: {
+      type: [Number],
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+  },
+}
+</script>
+
 <style lang="scss" scoped>
-.container {
+.button {
   display: flex;
-  align-items: center;
+  padding: 10px;
+  box-shadow: none;
+  flex-wrap: nowrap;
+}
+
+.button:hover,
+.button:focus {
+  border-radius: 30px !important;
 }
 
 .left {
-  font-size: 3em;
-  color: grey;
-  font-weight: bold;
+  font-size: 4em;
+  padding-left: 15px;
+  padding-right: 5px;
 }
 
-.right {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.bool {
+  border-radius: 50px;
+  padding: 5px 10px;
+  margin-bottom: 3px;
+}
+
+.bool.up {
+  background-color: $positive;
+}
+
+.bool.down {
+  background-color: $negative;
 }
 
 .bottom {
-  color: #777;
   font-size: 1em;
+  font-weight: 300;
+  text-transform: uppercase;
 }
 </style>
