@@ -23,8 +23,8 @@
 
     <div class="flex flex-center">
       <img
-        alt="Quasar logo"
-        src="~assets/quasar-logo-vertical.svg"
+        alt="Fake logo"
+        src="~assets/fake_logo.svg"
         style="width: 200px; height: 200px; margin-top: 50px"
       />
     </div>
