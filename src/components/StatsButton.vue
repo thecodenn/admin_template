@@ -7,8 +7,8 @@
 
     <!-- Right side showing the difference and name -->
     <div class="q-ml-sm">
-      <div class="bool row-center" :class="{ up: up, down: !up }">
-        <span style="padding-right: 5px">{{ diff }}</span>
+      <div class="row bool items-center" :class="{ up: up, down: !up }">
+        <span style="margin-right: 2px">{{ diff }}</span>
         <q-icon :name="up ? 'arrow_upward' : 'arrow_downward'"></q-icon>
       </div>
       <div class="bottom">
@@ -43,10 +43,14 @@ export default {
 
 <style lang="scss" scoped>
 .button {
-  display: flex;
+  //display: flex;
   padding: 10px;
   box-shadow: none;
   flex-wrap: nowrap;
+}
+
+.q-icon {
+  font-size: medium;
 }
 
 .button:hover,
@@ -56,14 +60,16 @@ export default {
 
 .left {
   font-size: 4em;
+  font-weight: lighter;
   padding-left: 15px;
   padding-right: 5px;
 }
 
 .bool {
   border-radius: 50px;
-  padding: 5px 10px;
+  padding: 0px 5px;
   margin-bottom: 3px;
+  color: #000000;
 }
 
 .bool.up {
@@ -76,7 +82,7 @@ export default {
 
 .bottom {
   font-size: 1em;
-  font-weight: 300;
-  text-transform: uppercase;
+  font-weight: lighter;
+  text-transform: none;
 }
 </style>

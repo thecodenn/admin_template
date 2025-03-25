@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh lpR fFf">
+  <q-layout view="hHh lpR lff">
     <DrawerLeft v-model:drawerOpen="leftDrawerOpen" />
     <MainHeader @toggleLeftDrawer="toggleLeftDrawer" @toggleRightDrawer="toggleRightDrawer" />
     <DrawerRight v-model:drawerOpen="rightDrawerOpen" />
