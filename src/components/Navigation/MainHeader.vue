@@ -38,7 +38,7 @@
         <q-btn
           class="icon-button"
           round
-          icon="menu"
+          :icon="props.drawerOpen ? 'keyboard_arrow_left' : 'keyboard_arrow_right'"
           aria-label="Menu"
           @click="$emit('toggleLeftDrawer')"
         />
@@ -71,6 +71,13 @@
 
 <script setup>
 import StatsButton from 'src/components/StatsButton.vue'
+
+const props = defineProps({
+  drawerOpen: {
+    type: Boolean,
+    required: true,
+  },
+})
 </script>
 
 <style lang="css" scoped>

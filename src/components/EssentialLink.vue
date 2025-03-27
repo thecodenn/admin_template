@@ -1,73 +1,49 @@
 <template>
-  <q-item v-if="props.openClose" clickable @click="toggleLeftDrawer" class="q-mb-xl">
-    <q-item-section v-if="props.icon" avatar>
-      <q-icon :name="leftDrawerIcon" class="q-pa-sm rounded-icon" />
-    </q-item-section>
-  </q-item>
-
-  <q-item v-else clickable tag="a" :href="props.link">
-    <q-item-section v-if="props.icon" avatar>
-      <q-icon :name="props.icon" class="q-pa-sm rounded-icon" />
-    </q-item-section>
-
-    <q-item-section v-if="props.title != ''">
-      <q-item-label>{{ props.title }}</q-item-label>
-      <q-item-label caption>{{ props.caption }}</q-item-label>
-    </q-item-section>
-  </q-item>
+  <router-link :to="props.link" custom>
+    <q-btn
+      clickable
+      tag="a"
+      :href="props.link"
+      class="icon-button"
+      :class="{ active: isActive }"
+      round
+      :icon="props.icon"
+      aria-label="Menu"
+    >
+      <q-tooltip anchor="center right" self="center left" :offset="[10, 10]">
+        <span>{{ props.title }}</span>
+      </q-tooltip></q-btn
+    >
+  </router-link>
 </template>
 
 <script setup>
-import { ref } from "vue";
-
-const leftDrawerIcon = ref("arrow_back");
-
-const emits = defineEmits(["toggled"]);
-
-function toggleLeftDrawer() {
-  emits("toggled");
-  leftDrawerIcon.value = leftDrawerIcon.value == 'arrow_forward' ? "arrow_back" : "arrow_forward";
-};
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
 
 const props = defineProps({
   title: {
     type: String,
-    required: true
-  },
-
-  caption: {
-    type: String,
-    default: ''
+    required: true,
   },
 
   link: {
     type: String,
-    default: '#'
+    default: '#',
+    required: true,
   },
 
   icon: {
     type: String,
-    default: ''
+    default: '',
+    required: true,
   },
+})
 
-  openClose: {
-    type: Boolean,
-    default: false,
-  }
+const route = useRoute()
+const isActive = computed(() => {
+  return route.path === props.link
 })
 </script>
 
-<style scoped>
-.rounded-icon {
-  background-color: #f0f0f0;
-  /* Optional: adds a background color */
-  border-radius: 50%;
-  /* Makes the icon round */
-  padding: 8px;
-  /* Adds space around the icon */
-  width: 32px;
-  /* Fixed width for consistency */
-  height: 32px;
-  /* Fixed height for consistency */
-}
-</style>
+<style></style>

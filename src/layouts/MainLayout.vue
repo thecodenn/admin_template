@@ -1,7 +1,11 @@
 <template>
   <q-layout view="hHh lpR lff">
     <DrawerLeft v-model:drawerOpen="leftDrawerOpen" />
-    <MainHeader @toggleLeftDrawer="toggleLeftDrawer" @toggleRightDrawer="toggleRightDrawer" />
+    <MainHeader
+      @toggleLeftDrawer="toggleLeftDrawer"
+      @toggleRightDrawer="toggleRightDrawer"
+      :drawerOpen="leftDrawerOpen"
+    />
     <DrawerRight v-model:drawerOpen="rightDrawerOpen" />
     <q-page-container>
       <router-view />
