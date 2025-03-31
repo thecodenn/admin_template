@@ -11,7 +11,7 @@
       </q-toolbar-title>
 
       <div class="row white-container">
-        <q-btn style="background-color: #121212" round flat icon="calendar_today" />
+        <q-btn class="icon-button" round flat icon="calendar_today" />
         <q-btn class="contained-button" flat rounded> Estimates </q-btn>
         <q-btn class="contained-button active" flat rounded> Invoices </q-btn>
         <q-btn class="contained-button" flat rounded> Payments </q-btn>
@@ -19,7 +19,7 @@
           Recurring Invoices <q-icon right name="keyboard_arrow_down" />
         </q-btn>
         <q-btn class="contained-button" flat rounded> Checkouts </q-btn>
-        <q-btn round outlined class="contained-button" icon="north_east" />
+        <q-btn round class="icon-button" icon="north_east" />
       </div>
 
       <q-btn round outline class="header-icon" icon="groups" />
@@ -85,11 +85,6 @@ const props = defineProps({
   background-color: #f5f5f5;
   border-radius: 50px;
   padding: 6px;
-}
-
-.header-icon {
-  color: #f5f5f5d6;
-  margin-left: 8px;
 }
 
 .q-btn-group .q-btn {

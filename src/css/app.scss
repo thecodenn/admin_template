@@ -1,7 +1,7 @@
 body.body--dark {
   font-family: 'Urbanist', sans-serif;
   background-color: $dark-page;
-  color: #ffffff;
+  color: $secondary;
 }
 
 .q-toolbar {
@@ -27,14 +27,12 @@ h3 {
 
 // BUTTONS
 .primary-button {
-  background-color: $primary;
   box-shadow:
     0 4px 6px rgba(255, 255, 255, 0.1),
     0 1px 3px rgba(255, 255, 255, 0.08);
   transition: box-shadow 0.3s ease-in-out;
   background-color: $secondary;
   color: black;
-  border-radius: 50px;
   padding: 10px 20px;
   display: flex;
   font-size: 1rem;
@@ -45,25 +43,100 @@ h3 {
   }
 }
 
+.secondary-button {
+  background-color: $primary;
+  color: $secondary;
+  padding: 8px 20px;
+  display: flex;
+  font-size: 0.8rem;
+
+  &:hover {
+    background-color: $accent;
+    color: black;
+  }
+}
+
 .contained-button {
   background-color: none;
-  color: #000000;
+  color: black;
   text-transform: none;
   margin: 0px 5px;
+  &:hover {
+    background-color: $positive;
+  }
 }
 
 .icon-button {
   background-color: $primary;
+  color: $secondary;
   margin: 3px;
+  &:hover {
+    background-color: $accent;
+    color: black;
+  }
 }
 
 .active {
   color: $dark-page;
   background-color: $positive;
   font-weight: bold;
+  box-shadow:
+    0 4px 6px rgba(255, 255, 255, 0.1),
+    0 1px 3px rgba(255, 255, 255, 0.08);
+}
+
+.header-icon {
+  color: $secondary;
+  margin-left: 8px;
+  &:hover {
+    color: $accent;
+  }
+}
+
+.secondary-icon {
+  background-color: #ffffff12;
+  color: $secondary;
+  margin-left: 8px;
+  font-size: 12px;
+  &:hover {
+    background-color: $accent;
+    color: black;
+  }
+}
+
+.dropdown {
+  margin: 0px 8px;
+}
+
+.dropdown-selected {
+  color: $accent;
 }
 
 .q-tooltip {
   background-color: $primary;
   font-size: medium;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: $dark-page;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary;
+  border-radius: 10px;
+  border: 3px solid $dark;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $positive;
+}
+
+::-webkit-scrollbar-corner {
+  background: $dark-page;
 }
